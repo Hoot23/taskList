@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<head>
+    <title>Task List</title>
+    <link rel="stylesheet" type="text/css" href="taskListStyle.css">
+</head>
+
+<body ng-app="taskApp" ng-controller="tAppCtrl">
+
+    <h1>Task List</h1>
+    <br>
+
+    <form ng-submit="addTask()">
+        <input type="text" ng-model="taskListInput" placeholder="New Task" required>
+        <input type="submit" value="Add Task">
+    </form>
+    <br>
+
+    <div name="aForm" ng-repeat="task in taskList">
+        <input type="checkbox" ng-model="task.checked">
+        <span ng-bind="task.taskListText"></span>
+    </div>
+    <br>
+
+    <button id="removeTask" ng-show="boxesChecked()>=1" ng-click="removeTask()">
+        Remove checked
+    </button>
+    <script src="taskListCtrl.js"></script>
+
+</body>
+</html>
